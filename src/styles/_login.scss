@@ -1,0 +1,102 @@
+.login__container{
+  width: 50%;
+  height: 100vh;
+  padding: 2rem;
+  background: rgba(255,255,255,.4);
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: left;
+  @include media("<=LGphone"){
+    width: 100%;
+  }
+  .logo__container{
+    text-align: center;
+    .logo{
+      // margin: 1rem 2rem;
+      // float: left;
+      // background: red;
+      width: 20%;
+      @include media("<=LGphone"){
+        width: 50%;
+      }
+    }
+  }
+  .info__container{
+    .login{
+      &__header{
+        font-size: 3em;
+        padding: 1rem 3rem;
+        @include media("<=LGphone"){
+          font-size: 2em;
+          padding: 1rem 2rem;
+        }
+      }
+      &__more__info{
+        font-size: 1.2em;
+        padding: 1rem 3rem;
+        text-align: left;
+        @include media("<=LGphone"){
+          padding: 1rem 2rem;
+        }
+      }
+    }
+  }
+  .login__btn{
+    width: 85%;
+    display: flex;
+    // justify-content: space-around;
+    align-items: center;
+    // padding: 1rem 0;
+    border: none;
+    margin-top: 1rem;
+    border-radius: 3px;
+    background-color: #1d5fdb;
+    cursor: pointer;
+    opacity: .7;
+    @include media("<=LGphone"){
+      opacity: 1;
+    }
+    &:hover{
+      opacity: 1;
+    }
+    &__txt{
+      color: #fafafa;
+      width: 90%;
+      // background: red;
+      // padding: 1rem;
+    }
+    &__icon{
+      width: 20%;
+      // float: left;
+      // text-align: left;
+      // margin: 0 1rem;
+      background: #fafafa;
+      border-radius: 1px;
+      padding: .7rem;
+      margin: .2rem;
+      @include media(">LGphone"){
+        width: 10%;
+      }
+      &__img{
+        width: 100%;
+      }
+    }
+  }
+}
+.mockup{
+  position: absolute;
+  float: right;
+  top:calc(50% - 20vw);
+  left:calc(50% + 10vw);
+  // transform: translate(-50%, -50%);
+  @include media("<=LGphone"){
+    display: none;
+  }
+  img{
+    width: calc(50% + 10vw);
+
+  }
+}

@@ -1,0 +1,21 @@
+.component__container {
+  // background: red;
+  // padding: 1rem calc(2vw + 10vw);
+  @include media("<=LGphone"){
+    // padding: 1rem calc(2vw + 10vw);
+    // padding: 1rem;
+  }
+  @include media(">LGphone"){
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+}
+// .glass__bg{
+//   background:white;
+//   background: linear-gradient(to right bottom,
+//   hsl(0, 0%, 10%),
+//   hsl(0, 0%, 12%));
+// }

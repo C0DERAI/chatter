@@ -4,7 +4,7 @@ import 'firebase/auth';
 
 const firebaseConfig = firebase.initializeApp({
   apiKey: "AIzaSyAn4dd_ExnfgWaE80Yb37rDTF4VEG2ivK8",
-  authDomain: "chatter-917d3.firebaseapp.com",
+  authDomain: "chat-chatter.netlify.app",
   projectId: "chatter-917d3",
   storageBucket: "chatter-917d3.appspot.com",
   messagingSenderId: "213432918773",

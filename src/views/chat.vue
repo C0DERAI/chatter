@@ -105,10 +105,21 @@
             })
             .then(() => {
               localStorage.removeItem('token');
-              document.location.href = "/";
+              // document.location.href = "/";
+              location.reload();
               })
             .catch(err => alert(err.message));
-          }
+          },
+          // async logout() {
+          //   try {
+          //     await firebase.auth().signOut();
+          //     await db.collection("LoggedUsers").doc(this.currentLogUsrId).delete();
+          //     localStorage.removeItem('token');
+          //     document.location.href = "/";
+          //   } catch(error) {
+          //     console.log(error);
+          //   }
+          // }
         },
         mounted(){
           // var vm = this;

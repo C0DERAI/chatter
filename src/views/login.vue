@@ -47,9 +47,14 @@ export default {
     useImg(){
       store.commit("imgPermissionToggle");
     },
-    loginSubmit(){
+    async loginSubmit(){
       const provider = new firebase.auth.GoogleAuthProvider();
-      firebase.auth().signInWithPopup(provider).catch(error => alert(error));
+      try {
+      await firebase.auth().signInWithPopup(provider);
+      await location.reload();
+      } catch(error) {
+        console.log(error);
+      }
     },
     userPermissionToggler(){
       const checkBoxState = document.getElementById('userImgPermissionCheckbox').checked;

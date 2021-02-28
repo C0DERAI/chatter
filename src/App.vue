@@ -6,8 +6,8 @@
 
 <script>
 import { reactive, ref} from 'vue';
-import LoginForm from './view/login'
-import ChatView from './view/chat';
+import LoginForm from './views/login'
+import ChatView from './views/chat';
 import Background from './components/bg';
 import firebase from 'firebase';
 

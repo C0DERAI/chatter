@@ -49,7 +49,7 @@ export default {
     },
     loginSubmit(){
       const provider = new firebase.auth.GoogleAuthProvider();
-      firebase.auth().signInWithRedirect(provider).catch(error => alert(error));
+      firebase.auth().signInWithPopup(provider).catch(error => alert(error));
     },
     userPermissionToggler(){
       const checkBoxState = document.getElementById('userImgPermissionCheckbox').checked;

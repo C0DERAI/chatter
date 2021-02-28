@@ -105,7 +105,7 @@
             })
             .then(() => {
               localStorage.removeItem('token');
-              document.location.href = "/login";
+              document.location.href = "/";
               })
             .catch(err => alert(err.message));
           }

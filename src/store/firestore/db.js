@@ -3,12 +3,13 @@ import 'firebase/firestore'
 import 'firebase/auth';
 
 const firebaseConfig = firebase.initializeApp({
-  apiKey: "AIzaSyAn4dd_ExnfgWaE80Yb37rDTF4VEG2ivK8",
-  authDomain: "chatter-917d3.firebaseapp.com",
-  projectId: "chatter-917d3",
-  storageBucket: "chatter-917d3.appspot.com",
-  messagingSenderId: "213432918773",
-  appId: "1:213432918773:web:e03826c1f0dd79d9421bbc"
+    apiKey: "AIzaSyAn4dd_ExnfgWaE80Yb37rDTF4VEG2ivK8",
+    authDomain: "chatter-917d3.firebaseapp.com",
+    databaseURL: "https://chatter-917d3-default-rtdb.firebaseio.com",
+    projectId: "chatter-917d3",
+    storageBucket: "chatter-917d3.appspot.com",
+    messagingSenderId: "213432918773",
+    appId: "1:213432918773:web:e03826c1f0dd79d9421bbc"
 })
 
 

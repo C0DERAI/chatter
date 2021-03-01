@@ -1,0 +1,30 @@
+.neomorphism{
+  // background:red;
+  box-shadow: 2px 2px 12px #000000c7, -1px -2px 12px #a3a3a380;
+}
+.neomorphism--light{
+  // background:red;
+  box-shadow: 4px 4px 12px #20202075, -4px -4px 12px #979797a4;
+}
+.msg--other{
+  float: right;
+  color:#181818;
+  font-weight: bold;
+  background-color: #EA5A43;
+  // @include media("<=LGphone"){
+  //   // background-color: #E8494A;
+  // }
+  &::before{
+    content:': says';
+    float: right;
+    color: #292929;
+    // margin-left: 5.5px;
+    // margin-bottom: 0;
+    // font-size: .7em;
+    font-weight: 100;
+  }
+  .message--txt{
+    color: #2e2e2e;
+    font-weight: 100;
+  }
+}

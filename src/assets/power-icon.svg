@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="180" height="180" viewBox="0 0 180 180">
+  <defs>
+    <clipPath id="clip-power-icon">
+      <rect width="180" height="180"/>
+    </clipPath>
+  </defs>
+  <g id="power-icon" clip-path="url(#clip-power-icon)">
+    <circle id="Ellipse_16" data-name="Ellipse 16" cx="81" cy="81" r="81" transform="translate(9 9)" fill="#ea5a43"/>
+    <path id="Path_50" data-name="Path 50" d="M17665.338,6241s-17.736,15.28-13.3,37.311,21.92,33.532,39.533,34.377,37.842-13.047,40.844-34.377-10.3-34.243-13.4-37.311" transform="translate(-17602.262 -6174.354)" fill="none" stroke="#fafafa" stroke-linecap="round" stroke-width="10"/>
+    <line id="Line_2" data-name="Line 2" y2="54.193" transform="translate(90.244 42.426)" fill="none" stroke="#fafafa" stroke-linecap="round" stroke-width="10"/>
+  </g>
+</svg>

@@ -1,14 +1,14 @@
 <template>
-    <div id="chat" class="component__container chat__container glass__bg">
+    <div id="chat" class="component__container chat__container neomorphism--light">
       <!-- {{usrImgPerm}} -->
       <!-- 'userImg','imgPermission', 'picurl', 'username' -->
       <LoginPopup :userImg="userImgUrl" :imgPermission="usrImgPerm" :username="username"></LoginPopup>
-        <header class="chat__header">
+        <header class="chat__header neomorphism">
           <div class="chat__header__user__info">
-          <img :src="userImgUrl" alt="user image">
+            <img class="chat__header__user__info__img" :src="userImgUrl" alt="user image">
             <h3 class="chat__header__user__info__name">{{username}}</h3>
           </div>
-          <button class="signout__btn" @click="signOut"><span>Logout</span><img src="../assets/logout-ico.svg" alt="logout button icon"></button>
+          <button class="signout__btn" @click="signOut"><img src="../assets/power-icon.svg" alt="logout button icon"></button>
           <!-- <ul  v-for="user in activeUsers" :key="user.id">
             <li class="test"> {{user}}</li>
           </ul> -->
@@ -16,7 +16,7 @@
         <section class="chat__box component__container__chatbox">
           <!-- chat messages -->
           <ul>
-            <li v-for="messages in messageList" :key="messages.key" :class="(messages.username == username ? 'message current--user' : 'message')"><span class="current--user--name message--name">{{messages.username}} <img :class="(messages.username == username ? 'hide--image' : 'usrimg')" :src="picurl" alt="senders pic"> </span><br/>{{messages.content}}</li>
+            <li v-for="messages in messageList" :key="messages.key" :class="(messages.username == username ? 'message current--user neomorphism' : 'message neomorphism msg--other')"><span class="current--user--name message--name">{{messages.username}}</span><br/><span class="message--txt">{{messages.content}}</span></li>
           </ul>
         </section>
         <footer class="chat__footer">
@@ -80,6 +80,7 @@
           }
         },
         methods:{
+          // var vm = this;
           sendMessage(e){
            e.preventDefault();
            const newMessage = {
@@ -87,12 +88,14 @@
               username: this.username,
               uid : this.uid
            }
-           if(this.inputMessage.value !=""||this.inputMessage.value != null){
+           if(this.inputMessage !==""){
               // dbRefObj.on('value', snap => console.log(snap.val()));
               // dbRefObj.push({newMessage})
               dbRefObj.push({newMessage})
               this.inputMessage="";
              return;
+            }else if(this.inputMessage === ""){
+              alert('Please type in a message!')
             }
           },
           signOut(){

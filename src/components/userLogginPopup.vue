@@ -4,7 +4,7 @@
       <img v-if="imgPermission" :src="userImg" alt="user image/icon">
       <img v-else src="../assets/user-icon.png" alt="user image/icon">
     </div>
-    <h5>{{ username }} just joined the chat{{ imgPermission }}</h5>
+    <h5>Welcome, {{ username }}</h5>
   </div>
 </template>
 <script>

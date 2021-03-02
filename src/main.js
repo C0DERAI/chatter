@@ -5,6 +5,7 @@ import store from './store'
 import 'firebase/firestore'
 // import firebase from 'firebase'
 import { auth } from './store/firestore/db'
+import './store/firestore/auth'
 import router from './router'
 
 auth.onAuthStateChanged(()=>{

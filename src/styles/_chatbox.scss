@@ -105,14 +105,9 @@
       padding: 1rem 1.5rem;
       margin-bottom: 3rem;
       // color: #b4b4b4;
+      
       @include media("<=LGphone"){
         width: 90%;
-      }
-      .hide--image{
-        display: none;
-      }
-      .usrimg{
-        width: 20%;
       }
     }
     .current--user{

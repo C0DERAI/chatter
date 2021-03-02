@@ -1,11 +1,17 @@
 <template>
   <Background></Background>
-  <ChatView v-if="user" :uid="user.uid" :username="user.displayName" :picurl="user.photoURL"></ChatView>
-  <LoginForm v-else></LoginForm>
+  <ChatView v-if="user" 
+  :uid="user.uid" 
+  :logout="logout"
+  :username="user.displayName" 
+  :picurl="user.photoURL"></ChatView>
+  <LoginForm :login="login" v-else></LoginForm>
 </template>
 
 <script>
 import { reactive, ref} from 'vue';
+import { mapActions, mapGetters } from 'vuex';
+
 import LoginForm from './views/login'
 import ChatView from './views/chat';
 import Background from './components/bg';
@@ -20,6 +26,18 @@ export default {
     LoginForm,
     ChatView,
     Background
+  },
+  computed: {
+      ...mapGetters({
+        userProfile: 'userProfile',
+        loggedIn: 'loggedIn'
+      })
+  },
+  methods:{
+    ...mapActions({
+        login: 'login',
+        logout: 'logout'
+      })
   },
   setup(){
     // const store = useStore();

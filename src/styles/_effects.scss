@@ -11,9 +11,13 @@
   color:#181818;
   font-weight: bold;
   background-color: #EA5A43;
+  text-align: right;
+  display: flex;
+  flex-direction: row;
   // @include media("<=LGphone"){
   //   // background-color: #E8494A;
   // }
+  
   &::before{
     content:': says';
     float: right;
@@ -24,7 +28,16 @@
     font-weight: 100;
   }
   .message--txt{
-    color: #2e2e2e;
+    color: #fafafa;
     font-weight: 100;
   }
+}
+.hide--img{
+  display: none;
+}
+.msg--usr--img{
+  margin-left: 1rem;
+  width: 60px;
+  border-radius: .6rem;
+  padding: .2rem;
 }

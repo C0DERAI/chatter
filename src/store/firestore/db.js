@@ -22,7 +22,8 @@ const dbRefObj = firebaseConfig.database().ref('messages');
 export {
   db,
   auth,
-  dbRefObj
+  dbRefObj,
+  firebaseConfig,
 }
 
 

@@ -21,7 +21,7 @@
       </div>
         <p class="permission__checkbox__txt">Use your gmail photo?</p>
     </div>
-      <button id="loginSubmit" class="login__btn" @click="login">
+      <button id="loginSubmit" class="login__btn" v-on:click="login">
         <span class="login__btn__icon"><img class="login__btn__icon__img" src="../assets/google-icon.png" alt="google icon"> </span>
         <span class="login__btn__txt">Login with google</span>
       </button>

@@ -10,23 +10,14 @@
   float: right;
   color:#181818;
   font-weight: bold;
-  background-color: #EA5A43;
+  background-color: #f3563e;
   text-align: right;
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
   // @include media("<=LGphone"){
   //   // background-color: #E8494A;
   // }
-  
-  &::before{
-    content:': says';
-    float: right;
-    color: #292929;
-    // margin-left: 5.5px;
-    // margin-bottom: 0;
-    // font-size: .7em;
-    font-weight: 100;
-  }
   .message--txt{
     color: #fafafa;
     font-weight: 100;
@@ -37,7 +28,8 @@
 }
 .msg--usr--img{
   margin-left: 1rem;
-  width: 60px;
+  width: 65px;
+  height: 65px;
   border-radius: .6rem;
   padding: .2rem;
 }

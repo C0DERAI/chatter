@@ -5,6 +5,7 @@
       <LoginPopup :userImg="userImgUrl" :imgPermission="usrImgPerm" :username="username"></LoginPopup>
         <header class="chat__header neomorphism">
           <!-- {{this.$store.state.uid}} -->
+          <button @click="getDateTime">test</button>
           <div class="chat__header__user__info">
             <img class="chat__header__user__info__img" :src="userImgUrl" alt="user image">
             <h3 class="chat__header__user__info__name">{{username}}</h3>
@@ -23,6 +24,10 @@
                 <span v-else class="current--user--name message--name">{{messages.username}}</span>
                 <br/>
                 <span class="message--txt">{{messages.content}}</span>
+                <div class="message--timestamp">
+                  <span class="message--timestamp--time">{{messages.dateStamp}}</span>
+                  <span class="message--timestamp--date">{{messages.timeStamp}}</span>
+                </div>
               </div>
               <img :class="(messages.username == username ? 'hide--img' : 'msg--usr--img')" :src="messages.usrImgUrl" alt="user image">
             </li>
@@ -82,17 +87,27 @@
             firebaseUserRef: db.collection("LoggedUsers").doc("name"),
             currentLogUsrId: '',
             activeUsers:[],
+            timeStamp:'',
+            dateStamp:''
           }
         },
         methods:{
-          // var vm = this;
+           getDateTime(da,ti){
+            //  time
+              var today = new Date();
+              da = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+              ti = new Date().toLocaleDateString();
+              console.log("Okay")
+          },
           sendMessage(e){
            e.preventDefault();
            const newMessage = {
               message: this.inputMessage,
               username: this.username,
               uid : this.uid,
-              msgUsrImg:''
+              msgUsrImg:'',
+              timeStamp: '',
+              dateStamp: ''
            }
            if(this.inputMessage !==""){
               // dbRefObj.on('value', snap => console.log(snap.val()));
@@ -107,14 +122,20 @@
                     .then((doc) => {
                       if(doc.exists){
                         newMessage.msgUsrImg = doc.data().picUrl;
+                        this.getDateTime(newMessage.dateStamp,newMessage.timeStamp)
                       }else{
                         console.log("No data found!")
                       }
                     })
                     .then(()=>{
                       dbRefObj.push({newMessage})
+                      
+                      // console.log(newMessage.msgUsrImg)
+                    })
+                    .then(()=>{
                       this.inputMessage="";
-                      console.log(newMessage.msgUsrImg)
+                      newMessage.dateStamp="";
+                      newMessage.timeStamp="";
                     })
                     .catch((err)=>{console.log("Error: ", err);})
                       // this.currentLogUsrId = curtLogUsrId; 
@@ -130,32 +151,7 @@
               alert('Please type in a message!')
             }
           },
-          // signOut(){
-          //   firebase
-          //   .auth()
-          //   .signOut()
-          //   .then(()=>{
-          //     db.collection("LoggedUsers").doc(this.currentLogUsrId).delete();
-          //     this.$store.state.uid = '';
-          //     // this.currentLogUsrId = '';
-          //   })
-          //   .then(() => {
-          //     localStorage.removeItem('token');
-          //     // document.location.href = "/";
-          //     location.reload();
-          //     })
-          //   .catch(err => alert(err.message));
-          // },
-          // async logout() {
-          //   try {
-          //     await firebase.auth().signOut();
-          //     await db.collection("LoggedUsers").doc(this.currentLogUsrId).delete();
-          //     localStorage.removeItem('token');
-          //     document.location.href = "/";
-          //   } catch(error) {
-          //     console.log(error);
-          //   }
-          // }
+         
         },
         mounted(){
           // var vm = this;
@@ -168,7 +164,9 @@
                 id: key,
                 username: data[key].newMessage.username,
                 content: data[key].newMessage.message,
-                usrImgUrl: data[key].newMessage.msgUsrImg
+                usrImgUrl: data[key].newMessage.msgUsrImg,
+                timeStamp: data[key].newMessage.timeStamp,
+                dateStamp: data[key].newMessage.dateStamp
               })
             })
             this.messageList = messageCollection;

@@ -5,7 +5,6 @@
       <LoginPopup :userImg="userImgUrl" :imgPermission="usrImgPerm" :username="username"></LoginPopup>
         <header class="chat__header neomorphism">
           <!-- {{this.$store.state.uid}} -->
-          <button @click="getDateTime">test</button>
           <div class="chat__header__user__info">
             <img class="chat__header__user__info__img" :src="userImgUrl" alt="user image">
             <h3 class="chat__header__user__info__name">{{username}}</h3>
@@ -44,7 +43,7 @@
 
 <script>
   // import { ref} from 'vue';
-  import firebase from 'firebase';
+  // import firebase from 'firebase';
   import {db, dbRefObj} from '../store/firestore/db';
   import LoginPopup from '../components/userLogginPopup';
     export default {
@@ -87,27 +86,25 @@
             firebaseUserRef: db.collection("LoggedUsers").doc("name"),
             currentLogUsrId: '',
             activeUsers:[],
-            timeStamp:'',
-            dateStamp:''
+            // timeStamp:'',
+            // dateStamp:new Date().toLocaleDateString()
           }
         },
         methods:{
-           getDateTime(da,ti){
-            //  time
-              var today = new Date();
-              da = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-              ti = new Date().toLocaleDateString();
-              console.log("Okay")
-          },
           sendMessage(e){
            e.preventDefault();
+           const currentTime = ()=>{
+                  var today = new Date();
+              var timeStamp = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+              return timeStamp;
+           }
            const newMessage = {
               message: this.inputMessage,
               username: this.username,
               uid : this.uid,
               msgUsrImg:'',
-              timeStamp: '',
-              dateStamp: ''
+              timeStamp: currentTime(),
+              dateStamp: new Date().toLocaleDateString()
            }
            if(this.inputMessage !==""){
               // dbRefObj.on('value', snap => console.log(snap.val()));
@@ -122,14 +119,13 @@
                     .then((doc) => {
                       if(doc.exists){
                         newMessage.msgUsrImg = doc.data().picUrl;
-                        this.getDateTime(newMessage.dateStamp,newMessage.timeStamp)
+                        // this.getDateTime()
                       }else{
                         console.log("No data found!")
                       }
                     })
                     .then(()=>{
                       dbRefObj.push({newMessage})
-                      
                       // console.log(newMessage.msgUsrImg)
                     })
                     .then(()=>{

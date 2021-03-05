@@ -17,7 +17,7 @@
         <section class="chat__box component__container__chatbox">
           <!-- chat messages -->
           <ul>
-            <li v-for="messages in messageList" :key="messages.key" :class="(messages.username == username ? 'message current--user neomorphism' : 'message neomorphism msg--other')">
+            <li v-for="messages in messageList" :key="messages.key" :class="(messages.username == username ? 'message current--user neomorphism message--in' : 'message neomorphism msg--other message--in')">
               <div class="msg--content--txt">
                 <span v-if="messages.username == username " class="current--user--name message--name">Me</span>
                 <span v-else class="current--user--name message--name">{{messages.username}}</span>

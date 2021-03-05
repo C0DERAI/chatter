@@ -33,3 +33,17 @@
   border-radius: .6rem;
   padding: .2rem;
 }
+.message--in{
+  animation: messageIn 300ms ease forwards;
+}
+
+@keyframes messageIn{
+  from{
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
